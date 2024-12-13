@@ -1,0 +1,49 @@
+Alunos: Juan Gabriel Assis de Souza;
+João Victor Alves da Mota
+
+5) Herança:
+
+A herança permite criar uma nova classe baseada em uma existente, reutilizando seu código.
+
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def apresentar(self):
+        return f"Meu nome é {self.nome} e tenho {self.idade} anos."
+
+class Estudante(Pessoa):  # Herda de Pessoa
+    def __init__(self, nome, idade, curso):
+        super().__init__(nome, idade)  # Chama o construtor da classe pai
+        self.curso = curso
+
+    def apresentar(self):
+        return f"Sou {self.nome}, tenho {self.idade} anos e estudo {self.curso}."
+
+6) Polimorfismo:
+
+O polimorfismo permite que métodos de mesmo nome em classes diferentes tenham comportamentos distintos.
+
+class Pessoa:
+    def apresentar(self):
+        return "Eu sou uma pessoa."
+
+class Estudante(Pessoa):
+    def apresentar(self):
+        return "Eu sou um estudante."
+
+class Professor(Pessoa):
+    def apresentar(self):
+        return "Eu sou um professor."
+
+def apresentar_pessoa(pessoa):
+    print(pessoa.apresentar())
+
+pessoa = Pessoa()
+estudante = Estudante()
+professor = Professor()
+
+apresentar_pessoa(pessoa)     # Saída: Eu sou uma pessoa.
+apresentar_pessoa(estudante)  # Saída: Eu sou um estudante.
+apresentar_pessoa(professor)  # Saída: Eu sou um professor.
