@@ -1,5 +1,75 @@
-Alunos: Juan Gabriel Assis de Souza;
-João Victor Alves da Mota
+1)Classe
+
+Uma classe é a estrutura básica para a criação de objetos. Ela define as propriedades (atributos) e comportamentos (métodos) que os objetos criados a partir dela terão.
+
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome  # Atributo de instância
+        self.idade = idade  # Atributo de instância
+
+Os atributos podem ser:
+
+De instância: Pertencem a cada objeto individualmente.
+De classe: São compartilhados por todos os objetos da classe.
+
+p1 = Pessoa("Kleber", 21)
+print(p1.nome)  # Saída: Kleber
+print(p1.idade)  # Saída: 21
+
+2) Atributos de classe:
+
+class Pessoa:
+    especie = "Cachorro"  # Atributo de classe
+
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+print(Cachorro.especie)  # Saída: Cachorro
+
+
+3) Visibiidade:
+
+Python utiliza convenções para simular os níveis de visibilidade:
+Público: Atributos e métodos acessíveis fora da classe (sem underline).
+Protegido: Atributos/métodos que não devem ser acessados diretamente, mas podem ser (com um underline _).
+Privado: Atributos/métodos acessíveis apenas dentro da classe (dois underlines __).
+
+class Cachorro:
+    def __init__(self, nome, idade):
+        self.nome = nome  # Público
+        self._altura = 0.95  # Protegido
+        self.__senha = "04578"  # Privado
+c = Cachorro("Bet", 0.9)
+print(c.nome)  # Saída: Bet
+print(c._altura)  # Saída: 0.95
+# print(c.__senha)  # Erro! Não acessível diretamente
+
+4) Métodos:
+
+Os métodos são funções definidas dentro da classe. Podem ser:
+
+De instância: Interagem com atributos do objeto.
+De classe: Usam o decorador @classmethod e acessam atributos de classe.
+Estáticos: Usam o decorador @staticmethod e não dependem de atributos de instância nem de classe.
+
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def apresentar(self):  # Método de instância
+        return f"Olá, meu nome é {self.nome} e tenho {self.idade} anos."
+
+    @classmethod
+    def especie(cls):  # Método de classe
+        return "Sou um cachorro."
+
+    @staticmethod
+    def saudacao():
+        return "Bem-vindo!"
+
+
 
 5) Herança:
 
